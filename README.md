@@ -1,4 +1,4 @@
-![Cover](http://github.com/jizhang02/HC-reg-seg/hc.png)
+![Cover](http://github.com/jizhang02/HC-reg-seg/code/hc.png)
 
 # HC-reg-seg
 
