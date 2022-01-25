@@ -17,7 +17,6 @@ import os
 
 os.environ["TF_CPP_MIN_LOG_LEVEL"] = "3"  # only show error
 from data_reg import *
-from model_reg import *
 from memory_usage import *
 
 root = 'HCRegSeg/'
@@ -39,17 +38,9 @@ loss = [huber_loss]  # "MAE" ,huber_loss
 
 #print("lr:",str(learning_rate),"bs:",str(batch_size),'Epoch:',str(nb_epoch),'X_aug:',str(X_aug.shape),'loss:',str(loss))
 ########## training and predicting###########
-# with MSE
-model = vgg16(inputshape2D)
-#model = resnet50(inputshape2D)
-#model = efficientnets(inputshape2D)
-#model = densenet121(inputshape2D)
-#model = xception(inputshape2D)
-#model = mobilenet(inputshape2D)
-#model = inception(inputshape2D)
-#model.summary()
+
 gigabytes = get_model_memory_usage(batch_size,model)
 print("Memory usage:",gigabytes)
 # fold_cross_valid(root, X_aug, Y_aug, ps_aug,X_ori, Y_ori, ps_ori,
-#                  model, loss, nb_epoch=nb_epoch, batch_size=batch_size, learning_rate=learning_rate,
+#                  inputshape2D, loss, nb_epoch=nb_epoch, batch_size=batch_size, learning_rate=learning_rate,
 #                  best_filename=root + 'best_MSE.h5')
