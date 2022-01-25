@@ -22,3 +22,7 @@ The code is implimented with Python 3.* and Deep learning library Tensorflow (Ke
 
 ---
 The work is finished together with [Caroline Petitjean](http://pagesperso.litislab.fr/cpetitjean/) and [Samia Ainouz](https://pagesperso.litislab.fr/sainouz/) in [LITIS](https://www.litislab.fr/) lab.
+
+Please consider citing this paper when you found it useful:
+
+Zhang, J.; Petitjean, C.; Ainouz, S. Segmentation-Based vs. Regression-Based Biomarker Estimation: A Case Study of Fetus Head Circumference Assessment from Ultrasound Images. J. Imaging 2022, 8, 23. https://doi.org/10.3390/jimaging8020023
