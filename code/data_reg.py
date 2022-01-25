@@ -21,7 +21,7 @@ import cv2 as cv
 import tensorflow as tf
 from keras.optimizers import Adam
 from keras.callbacks import CSVLogger, ModelCheckpoint, EarlyStopping
-
+from model_reg import *
 
 def Info(images_path):
     imagelist = sorted(glob.glob(os.path.join(images_path, '*.png')))
@@ -129,7 +129,7 @@ def predictions_area(X, y, ps, maxHC, model):
     return mean, std, mean_pix, std_pix, pmae_mean, pmae_std
 
 def fold_cross_valid(root, x_aug, y_aug, ps_aug,x_ori, y_ori,
-                     ps_ori, model, loss='mse', nb_epoch=50, batch_size=8, learning_rate=1e-3, best_filename='best.h5'):
+                     ps_ori, inputshape2D, loss='mse', nb_epoch=50, batch_size=8, learning_rate=1e-3, best_filename='best.h5'):
     test_mae_HC_px = []
     test_mae_HC_mm = []
     test_pmae_HC = []
@@ -176,6 +176,16 @@ def fold_cross_valid(root, x_aug, y_aug, ps_aug,x_ori, y_ori,
         y_train = y_train / maxHC # normalization
         y_valid = y_valid / maxHC
         y_test = y_test / maxHC
+        
+        # with MSE
+        model = vgg16(inputshape2D)
+        #model = resnet50(inputshape2D)
+        #model = efficientnets(inputshape2D)
+        #model = densenet121(inputshape2D)
+        #model = xception(inputshape2D)
+        #model = mobilenet(inputshape2D)
+        #model = inception(inputshape2D)
+        #model.summary()
 
         # compilation of the network
         model.compile(loss=loss, optimizer=Adam(lr=learning_rate), metrics=["mae"])
