@@ -2,7 +2,7 @@
 
 Fetus head circumference (HC) estimation from ultrasound images via segmentation-based and segmentation-free approaches.    
 ---
-![Cover](http://github.com/jizhang02/HC-reg-seg/code/hc.png)    
+![Cover](code/hc.png)    
 ⭐ The highlight of this work:
 * The HC is estimated via segmentation-based and segmentation-free approaches respetively;
 * Methodology on evaluating the segmentation-based and segmentation-free methods;
