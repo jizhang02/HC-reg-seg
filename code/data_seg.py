@@ -27,6 +27,8 @@ from keras.optimizers import Adam
 #from tensorflow.keras.optimizers import Adam # only for doubleunet
 from keras.callbacks import CSVLogger, ModelCheckpoint, EarlyStopping
 import segmentation_models as sm
+from model_seg import *
+from doubleu_net import *
 
 def load_data(img_path_aug, img_path_ori, gt_path_aug, gt_path_ori, csv_aug, csv_ori, H, W):
     df_ori = pd.read_csv(csv_ori)
@@ -312,7 +314,7 @@ def predictions(x_text, y_test, label_hc_px, pixelsize, model, save_path):
            std_pmae_points_pp, std_pmae_contour_pp, std_pmae_ellipse_pp
 
 
-def fold_cross_valid(root,x_aug, y_aug, x_ori, y_ori, label_hc, ps_ori, model, loss, save_path,
+def fold_cross_valid(root,x_aug, y_aug, x_ori, y_ori, label_hc, ps_ori, inputshape2D, loss, save_path,
                      nb_epoch=50, batch_size=8, learning_rate=1e-3, best_filename='best.h5'):
     test_dice = []
     test_hd = []
@@ -374,6 +376,17 @@ def fold_cross_valid(root,x_aug, y_aug, x_ori, y_ori, label_hc, ps_ori, model, l
         ps_test = ps_ori[idx_test]
         hc_test = label_hc[idx_test]
         metric = sm.metrics.iou_score
+        #model = unet(inputshape2D)
+        model = sm.Unet(backbone,input_shape=inputshape2D,encoder_weights = None)
+        #model = smx.Xnet(backbone,input_shape=inputshape2D)
+        #model = sm.FPN(backbone,input_shape=inputshape2D) #
+        #model = sm.Linknet(backbone,input_shape=inputshape2D)
+        #model = sm.PSPNet(backbone,input_shape=inputshape2D) # require 480,480!!!
+        #model = doubleUNet(inputshape2D) # require two keras frames!!!
+        #model = sm.PSPNet(backbone, encoder_weights = 'imagenet', classes = 1,
+        #encoder_freeze=False, activation='sigmoid', downsample_factor=16, input_shape=(480,480,3),
+        #psp_conv_filters=1024, psp_pooling_type='avg')
+        #model.summary()
         model.compile(loss=loss, optimizer=Adam(lr=learning_rate), metrics=[metric])
 
         model.fit(x_train, y_train, validation_data=(x_valid, y_valid),
