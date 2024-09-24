@@ -1,10 +1,10 @@
 # HC-reg-seg
 
-Fetus head circumference (HC) estimation from ultrasound images via segmentation-based and segmentation-free approaches.    
+Fetus head circumference (HC) estimation from ultrasound images via segmentation-based and segmentation-free approaches. 
 ---
 ![Cover](code/hc.png)    
 ⭐ The highlight of this work:
-* The HC is estimated via segmentation-based and segmentation-free approaches respetively;
+* The HC is estimated via segmentation-based and segmentation-free approaches respectively;
 * Methodology on evaluating the segmentation-based and segmentation-free methods;
 * The evaluation of two approaches is performed under a **fair experimental environment**. 
 
@@ -18,11 +18,31 @@ Fetus head circumference (HC) estimation from ultrasound images via segmentation
 
 💻 About the code:    
 
-The code is implimented with Python 3.* and Deep learning library Tensorflow (Keras 2.*).
+The code is implemented with Python 3.* and the Deep learning library Tensorflow (Keras 2.*).
 
 ---
-The work is finished together with [Caroline Petitjean](http://pagesperso.litislab.fr/cpetitjean/) and [Samia Ainouz](https://pagesperso.litislab.fr/sainouz/) in [LITIS](https://www.litislab.fr/) lab.
+The work is finished together with [Caroline Petitjean](http://pagesperso.litislab.fr/cpetitjean/) and [Samia Ainouz](https://pagesperso.litislab.fr/sainouz/) in [LITIS](https://www.litislab.fr/) lab.    
 
-Please consider citing this paper when you found it useful:
+Please consider citing this paper when you find it useful:
 
-Zhang, J.; Petitjean, C.; Ainouz, S. Segmentation-Based vs. Regression-Based Biomarker Estimation: A Case Study of Fetus Head Circumference Assessment from Ultrasound Images. J. Imaging 2022, 8, 23. https://doi.org/10.3390/jimaging8020023
+```
+@inproceedings{zhang2020direct,
+  title={Direct estimation of fetal head circumference from ultrasound images based on regression CNN},
+  author={Zhang, Jing and Petitjean, Caroline and Lopez, Pierre and Ainouz, Samia},
+  booktitle={Medical Imaging with Deep Learning},
+  pages={914--922},
+  year={2020},
+  organization={PMLR}
+}
+
+@article{zhang2022segmentation,
+  title={Segmentation-based vs. regression-based biomarker estimation: a case study of fetus head circumference assessment from ultrasound images},
+  author={Zhang, Jing and Petitjean, Caroline and Ainouz, Samia},
+  journal={Journal of Imaging},
+  volume={8},
+  number={2},
+  pages={23},
+  year={2022},
+  publisher={MDPI}
+}
+```
